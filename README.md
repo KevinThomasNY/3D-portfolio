@@ -26,4 +26,4 @@ This portfolio website includes the following features:
 
 - The navigation bar includes a button to toggle light and dark mode.
 - The hero section containes a 3D laptop model. You can click on the laptop screen to rotate the image.
-- A contact section allows users to rotate the image.
+- The contact section allows users to rotate the image.
