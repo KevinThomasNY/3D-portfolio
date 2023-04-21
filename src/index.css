@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Variables */
+:root {
+  --scrollbar-width: 10px;
+  --scrollbar-track-background: #1c1c1c;
+  --scrollbar-thumb-background: #888;
+  --scrollbar-thumb-hover-background: #555;
+  --laptop-screen-width: 1024px;
+  --laptop-screen-height: 670px;
+  --form-container-height: 40rem;
+  --form-overlay-background: #7f57ef;
+  --form-overlay-color: #ffffff;
+  --form-overlay-padding: 3em;
+  --form-overlay-width: 100%;
+  --form-overlay-max-width: 40%;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-track-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover-background);
+}
+
+/* Laptop Screen */
+.htmlScreen iframe {
+  width: var(--laptop-screen-width);
+  height: var(--laptop-screen-height);
+  border: none;
+  border-radius: 20px;
+  background: #000000;
+}
+
+/* Contact Form Section */
+.container {
+  height: var(--form-container-height);
+  position: relative;
+}
+
+/* Contact Form Email Portion */
+.overlay {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: var(--form-overlay-padding);
+  background: var(--form-overlay-background);
+  color: var(--form-overlay-color);
+  width: var(--form-overlay-width);
+  min-height: calc(
+    var(--form-container-height) - 2 * var(--form-overlay-padding)
+  );
+}
+
+.overlay h1 {
+  font-size: clamp(2.5rem, 3.2vw, 3.8rem);
+  font-family: "Bebas Neue";
+}
+
+@media (min-width: 1024px) {
+  /* styles for screens with width 768px and above */
+  .overlay {
+    width: var(--form-overlay-max-width);
+    height: 100%;
+  }
+}
+
+/* styles for screens with width 767px and below */
+@media (max-width: 1024px) {
+  .overlay {
+    width: var(--form-overlay-width);
+    height: 100%;
+  }
+  .container {
+    height: auto;
+  }
+}
