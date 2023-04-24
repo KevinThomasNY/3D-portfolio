@@ -2,6 +2,8 @@
 
 ## Website Link: [Click Here](https://kevinthomas.vercel.app/)
 
+<img src="./public/images/github_readme.png">
+
 ## Table of Contents
 
 - [Introduction](#introduction)
