@@ -4,14 +4,17 @@ export default function Error() {
   const navigate = useNavigate();
 
   return (
-    <>
-      <h1 className="text-6xl">Error 404</h1>
+    <div className="flex h-screen flex-col items-center justify-center">
+      <h1 className="mb-8 text-6xl font-bold text-gray-900">Error 404</h1>
+      <p className="mb-8 text-2xl text-gray-700">
+        Oops! The page you're looking for doesn't exist.
+      </p>
       <button
-        className="rounded-md bg-blue-300 p-4 text-lg"
+        className="focus:shadow-outline rounded bg-blue-600 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
         onClick={() => navigate("/")}
       >
-        Home Page
+        Go to Home Page
       </button>
-    </>
+    </div>
   );
 }
