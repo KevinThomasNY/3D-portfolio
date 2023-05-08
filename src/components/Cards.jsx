@@ -44,6 +44,17 @@ const projectsData = [
     image: "./images/donut.png",
     alt: "Donut screenshot",
   },
+  {
+    id: 5,
+    name: "Portfolio Version 1",
+    description:
+      "This is my original portfolio website, and there are several similarities between its first version and the current one, version 2. In the first version, an SVG animation was used in the hero section, while the current version features a 3D model with a screen animation. In version 2 you can rotate the screen image.",
+    technologies: ["Next.js", "Styled Components"],
+    githubLink: null,
+    liveLink: "https://kevin-thomas-portfolio.vercel.app/",
+    image: "./images/portfolio.png",
+    alt: "Portfolio screenshot",
+  },
 ];
 
 export default function Cards() {
@@ -54,7 +65,9 @@ export default function Cards() {
         {projectsData.map((project) => (
           <div
             key={project.id}
-            className="w-full rounded-lg border border-gray-200 bg-white shadow dark:border-gray-900 dark:bg-dark-card"
+            className={`w-full rounded-lg border border-gray-200 bg-white shadow dark:border-gray-900 dark:bg-dark-card ${
+              project.id === 5 ? "md:col-span-2" : ""
+            }`}
           >
             <a href={project.liveLink} target="_blank">
               <img
@@ -83,31 +96,34 @@ export default function Cards() {
               ))}
 
               <br />
-              <a
-                href={project.githubLink}
-                target="_blank"
-                className="mr-4 mt-4  inline-flex items-center justify-center  rounded-lg bg-accent-green px-3 py-2 text-center text-sm font-medium text-white  hover:bg-dark-green focus:outline-none focus:ring-4 focus:ring-green-700"
-              >
-                Code
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="ml-2 mr-1 h-5 w-5"
+              {project.githubLink != null && (
+                <a
+                  href={project.githubLink}
+                  target="_blank"
+                  className="mr-4 mt-4  inline-flex items-center justify-center  rounded-lg bg-accent-green px-3 py-2 text-center text-sm font-medium text-white  hover:bg-dark-green focus:outline-none focus:ring-4 focus:ring-green-700"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
-                  />
-                </svg>
-              </a>
+                  Code
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="ml-2 mr-1 h-5 w-5"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
+                    />
+                  </svg>
+                </a>
+              )}
+
               <a
                 href={project.liveLink}
                 target="_blank"
-                className="inline-flex  items-center justify-center rounded-lg bg-blue-700 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="mt-4 inline-flex  items-center justify-center rounded-lg bg-blue-700 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 Live Site
                 <svg
