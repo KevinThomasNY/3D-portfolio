@@ -5,7 +5,6 @@ import {
   ContactShadows,
   useGLTF,
   Preload,
-  OrbitControls,
 } from "@react-three/drei";
 import CanvasLoader from "../Loader";
 const Experience = () => {
@@ -16,7 +15,6 @@ const Experience = () => {
   return (
     <>
       <Environment preset="city" />
-      <OrbitControls />
       <primitive
         object={druid.scene}
         rotation={[0, 0, 0]}
