@@ -27,5 +27,19 @@ This website is built using the following technologies:
 This portfolio website includes the following features:
 
 - The navigation bar includes a button to toggle light and dark mode.
-- The hero section containes a 3D laptop model. You can click on the laptop screen to rotate the image.
+
+  - Light Mode
+    <img src="./public/images/github_readme_light.png">
+
+  - Dark Mode
+    <img src="./public/images/github_readme.png">
+    <br/>
+
+- The hero section contains a 3D laptop model. You can click on the laptop screen to rotate the image.
+
+  <img src="./public/images/github_readme_laptop.png">
+  <br/>
+
 - The contact section allows users to rotate the image.
+
+  <img src="./public/images/github_readme_contact.png">
