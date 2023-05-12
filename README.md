@@ -37,14 +37,14 @@ This portfolio website includes the following features:
 
 - The hero section contains a 3D laptop model. You can click on the laptop screen to rotate the image.
 
-  <img src="./public/images/github_readme_laptop.png">
+  ![3D Laptop](./public/gif/laptop.gif)
   <br/>
 
 - The contact section allows users to rotate the image.
 
-  <img src="./public/images/github_readme_contact.png">
+  ![Contact](./public/gif/contact.gif)
   <br/>
 
 - Error page includes animated 3D model.
 
-  <img src="./public/images/github_readme_error.png">
+  ![Gandalf](./public/gif/gandalf.gif)
