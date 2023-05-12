@@ -45,6 +45,6 @@ This portfolio website includes the following features:
   <img src="./public/images/github_readme_contact.png">
   <br/>
 
-- 3D error page model.
+- Error page includes animated 3D model.
 
   <img src="./public/images/github_readme_error.png">
