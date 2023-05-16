@@ -13,7 +13,7 @@ const projectsData = [
     name: "MERN Todo App",
     description:
       "The application allows users to preform CRUD Operations on their Todo tasks. The app also includes a login and register page for user authentication. It is using JSON web token (JWT) for secure user sessions.",
-    technologies: ["MongoDB", "Express.js", "React", "Node.js"],
+    technologies: ["MongoDB", "Express-js", "React", "Nodejs"],
     githubLink: "https://github.com/KevinThomasNY/MERN-todo-app",
     liveLink: "https://todo-app-mern-stack.vercel.app/",
     image: "./images/mern.png",
@@ -36,111 +36,96 @@ export default function Projects({ theme }) {
     <div id="projects" className="mx-auto max-w-6xl p-4">
       <h1 className="text-4xl md:pb-12 md:text-6xl">Projects</h1>
       <div className="grid grid-cols-1 gap-8  md:grid-cols-2">
+        {/* Project 1 */}
         <div>
           <h2 className="pb-4 text-2xl">{projectsData[0].name}</h2>
-          <p className=" bg-dark-green p-6 text-white">
+          <p className="bg-dark-green p-6 text-white">
             {projectsData[0].description}
           </p>
           <div className="flex flex-row pb-4 pt-4">
-            <img
-              src="./images/logos_javascript.png"
-              alt="javascript"
-              className="mr-4"
-            />
-            <img src="./images/logos_mysql.png" alt="mySQL" className="mr-4" />
-            <img src="./images/logos_php.png" alt="PHP" />
+            {projectsData[0].technologies.map((technology, index) => (
+              <img
+                key={index}
+                src={`./images/logos_${technology.toLowerCase()}.png`}
+                alt={technology}
+                className="mr-4"
+              />
+            ))}
           </div>
           <button
             type="button"
             className="mr-2 transition duration-200 ease-in-out hover:scale-110"
           >
-            {theme === "dark" ? (
-              <a
-                href="https://github.com/KevinThomasNY/Winterhold-University"
-                target="_blank"
-              >
-                <img
-                  className="w-8 md:w-9"
-                  src="./images/logos_github_light.png"
-                  alt="github"
-                />
-              </a>
-            ) : (
-              <a
-                href="https://github.com/KevinThomasNY/Winterhold-University"
-                target="_blank"
-              >
-                <img
-                  className="w-8 md:w-9"
-                  src="./images/logos_github_dark.png"
-                  alt="github"
-                />
-              </a>
-            )}
+            <a
+              href={projectsData[0].githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                className="w-8 md:w-9"
+                src={`./images/logos_github_${
+                  theme === "dark" ? "light" : "dark"
+                }.png`}
+                alt="github"
+              />
+            </a>
           </button>
           <button
             type="button"
             className="transition duration-200 ease-in-out hover:scale-110"
           >
-            {theme === "dark" ? (
-              <a
-                href="https://winterholduniversity.000webhostapp.com/src/home.html"
-                target="_blank"
-              >
-                <img
-                  className="w-8 md:w-9"
-                  src="./images/logos_live_site_light.png"
-                  alt="live_site"
-                />
-              </a>
-            ) : (
-              <a
-                href="https://winterholduniversity.000webhostapp.com/src/home.html"
-                target="_blank"
-              >
-                <img
-                  className="w-8 md:w-9"
-                  src="./images/logos_live_site_dark.png"
-                  alt="live_site"
-                />
-              </a>
-            )}
+            <a
+              href={projectsData[0].liveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                className="w-8 md:w-9"
+                src={`./images/logos_live_site_${
+                  theme === "dark" ? "light" : "dark"
+                }.png`}
+                alt="live_site"
+              />
+            </a>
           </button>
         </div>
         <div className="flex hidden items-center justify-center md:block md:pb-16">
-          <a
-            href="https://winterholduniversity.000webhostapp.com/src/home.html"
-            target="_blank"
-          >
-            <img className="" src="./images/winterhold.png" alt="" />
+          <a href={projectsData[0].liveLink} target="_blank">
+            <img
+              className=""
+              src={projectsData[0].image}
+              alt={projectsData[0].alt}
+            />
           </a>
         </div>
+        {/* Project 2 */}
         <div className="flex hidden items-center justify-center md:block">
-          <a href="https://todo-app-mern-stack.vercel.app/" target="_blank">
-            <img className="" src="./images/mern.png" alt="" />
+          <a
+            href={projectsData[1].liveLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              className=""
+              src={projectsData[1].image}
+              alt={projectsData[1].alt}
+            />
           </a>
         </div>
         <div className="md:pb-16">
-          <h2 className="pb-4 text-2xl">MERN Todo App</h2>
-          <p className=" bg-accent-purple p-6 text-white">
-            The application allows users to preform CRUD Operations on their
-            Todo tasks. The app also includes a login and register page for user
-            authentication. It is using JSON web token (JWT) for secure user
-            sessions.
+          <h2 className="pb-4 text-2xl">{projectsData[1].name}</h2>
+          <p className="bg-accent-purple p-6 text-white">
+            {projectsData[1].description}
           </p>
           <div className="flex flex-row pb-4 pt-4">
-            <img
-              src="./images/icons8-mongodb.svg"
-              alt="mongodb"
-              className="mr-4"
-            />
-            <img
-              src="./images/icons8-express-js.svg"
-              alt="expressjs"
-              className="mr-4"
-            />
-            <img src="./images/icons8-react.svg" alt="react" className="mr-4" />
-            <img src="./images/icons8-nodejs.svg" alt="nodejs" />
+            {projectsData[1].technologies.map((technology, index) => (
+              <img
+                key={index}
+                src={`./images/icons8-${technology.toLowerCase()}.svg`}
+                alt={technology}
+                className="mr-4"
+              />
+            ))}
           </div>
           <button
             type="button"
@@ -148,8 +133,9 @@ export default function Projects({ theme }) {
           >
             {theme === "dark" ? (
               <a
-                href="https://github.com/KevinThomasNY/MERN-todo-app"
+                href={projectsData[1].githubLink}
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <img
                   className="w-8 md:w-9"
@@ -159,8 +145,9 @@ export default function Projects({ theme }) {
               </a>
             ) : (
               <a
-                href="https://github.com/KevinThomasNY/MERN-todo-app"
+                href={projectsData[1].githubLink}
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <img
                   className="w-8 md:w-9"
@@ -175,7 +162,11 @@ export default function Projects({ theme }) {
             className="transition duration-200 ease-in-out hover:scale-110"
           >
             {theme === "dark" ? (
-              <a href="https://todo-app-mern-stack.vercel.app/" target="_blank">
+              <a
+                href={projectsData[1].liveLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   className="w-8 md:w-9"
                   src="./images/logos_live_site_light.png"
@@ -183,7 +174,11 @@ export default function Projects({ theme }) {
                 />
               </a>
             ) : (
-              <a href="https://todo-app-mern-stack.vercel.app/" target="_blank">
+              <a
+                href={projectsData[1].liveLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   className="w-8 md:w-9"
                   src="./images/logos_live_site_dark.png"
@@ -193,15 +188,15 @@ export default function Projects({ theme }) {
             )}
           </button>
         </div>
-        <div className="">
-          <h2 className="pb-4 text-2xl">Maze Game</h2>
-          <p className=" bg-dark-green p-6 text-white">
-            The Maze Game is a 2D Java game that includes randomly generated
-            mazes. Each level presents players with progressively complex and
-            challenging obstacles.
+
+        {/* Project 3 */}
+        <div>
+          <h2 className="pb-4 text-2xl">{projectsData[2].name}</h2>
+          <p className="bg-dark-green p-6 text-white">
+            {projectsData[2].description}
           </p>
           <div className="flex flex-row pb-4 pt-4">
-            <img src="./images/icons8-java.svg" alt="java" />
+            <img src="./images/icons8-java.svg" alt="Java" />
           </div>
           <button
             type="button"
@@ -209,24 +204,26 @@ export default function Projects({ theme }) {
           >
             {theme === "dark" ? (
               <a
-                href="https://github.com/KevinThomasNY/The-Maze-Game-Java-"
+                href={projectsData[2].githubLink}
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <img
                   className="w-8 md:w-9"
                   src="./images/logos_github_light.png"
-                  alt="github"
+                  alt="GitHub"
                 />
               </a>
             ) : (
               <a
-                href="https://github.com/KevinThomasNY/The-Maze-Game-Java-"
+                href={projectsData[2].githubLink}
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <img
                   className="w-8 md:w-9"
                   src="./images/logos_github_dark.png"
-                  alt="github"
+                  alt="GitHub"
                 />
               </a>
             )}
@@ -236,30 +233,42 @@ export default function Projects({ theme }) {
             className="transition duration-200 ease-in-out hover:scale-110"
           >
             {theme === "dark" ? (
-              <a href="https://the-maze-game-java.netlify.app/" target="_blank">
+              <a
+                href={projectsData[2].liveLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   className="w-8 md:w-9"
                   src="./images/logos_live_site_light.png"
-                  alt="live_site"
+                  alt="Live Site"
                 />
               </a>
             ) : (
-              <a href="https://the-maze-game-java.netlify.app/" target="_blank">
+              <a
+                href={projectsData[2].liveLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   className="w-8 md:w-9"
                   src="./images/logos_live_site_dark.png"
-                  alt="live_site"
+                  alt="Live Site"
                 />
               </a>
             )}
           </button>
         </div>
         <div className="flex hidden items-center justify-center md:block">
-          <a href="https://the-maze-game-java.netlify.app/" target="_blank">
+          <a
+            href={projectsData[2].liveLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
               className=""
               src="./images/maze_game.png"
-              alt="java screnshot"
+              alt={projectsData[2].alt}
             />
           </a>
         </div>
