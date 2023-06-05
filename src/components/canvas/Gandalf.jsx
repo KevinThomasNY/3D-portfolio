@@ -24,7 +24,7 @@ const Experience = () => {
 
   return (
     <>
-      <Environment preset="city" />
+      <Environment path="/hdri/" files="potsdamer_platz_1k.hdr" />
       <primitive
         object={druid.scene}
         position={[0, 0, 0.9]}

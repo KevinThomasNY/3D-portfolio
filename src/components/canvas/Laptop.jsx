@@ -11,16 +11,14 @@ import {
 } from "@react-three/drei";
 import CanvasLoader from "../Loader";
 const Experience = ({ theme }) => {
-  const computer = useGLTF(
-    "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf"
-  );
+  const computer = useGLTF("./models/laptop.gltf");
   const src =
     theme === "dark"
       ? "https://3-d-portfolio-kevinthomasny.vercel.app/dark"
       : "https://3-d-portfolio-kevinthomasny.vercel.app/light";
   return (
     <>
-      <Environment preset="city" />
+      <Environment path="/hdri/" files="potsdamer_platz_1k.hdr" />
       <PresentationControls
         global
         rotation={[0.13, 0.1, 0]}
