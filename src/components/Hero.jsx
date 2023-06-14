@@ -11,9 +11,9 @@ export default function Hero({ theme }) {
             </h1>
             <br />
             <p className="pb-16 text-base md:pb-64 md:text-lg">
-              Computer Science graduate passionate about building user-friendly
-              web apps. Seeking a Web Dev or Software Dev role with growth
-              opportunities to make an impact.
+              I am a Computer Science graduate passionate about building
+              user-friendly web apps. Seeking a Web Dev or Software Dev role
+              with growth opportunities to make an impact.
             </p>
           </div>
 
