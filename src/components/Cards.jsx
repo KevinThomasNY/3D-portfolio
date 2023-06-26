@@ -48,7 +48,7 @@ const projectsData = [
     id: 5,
     name: "Portfolio Version 1",
     description:
-      "This is my original portfolio website, and there are several similarities between its first version and the current one, version 2. In the first version, an SVG animation was used in the hero section, while the current version features a 3D model with a screen animation. In version 2 you can rotate the screen image.",
+      "This is my original portfolio website, and there are several similarities between its first version and the current one, version 2. In the first version, an SVG animation was used in the hero section, while the current version features a 3D model with a screen animation. In version 2 you can rotate the screen image on the laptop model.",
     technologies: ["Next.js", "Styled Components"],
     githubLink: null,
     liveLink: "https://kevin-thomas-portfolio.vercel.app/",
