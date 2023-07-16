@@ -11,9 +11,10 @@ export default function Hero({ theme }) {
             </h1>
             <br />
             <p className="pb-16 text-base md:pb-64 md:text-lg">
-              I am a Computer Science graduate passionate about building
-              user-friendly web apps. Seeking a Web Dev or Software Dev role
-              with growth opportunities to make an impact.
+              I am a{" "}
+              <span className="text-accent-purple">Software Developer</span>{" "}
+              passionate about building user-friendly web apps based in New
+              York.
             </p>
           </div>
 
