@@ -2,7 +2,7 @@
 
 ## Website Link: [Click Here](https://kevinthomas.vercel.app/)
 
-<img src="./public/images/github_readme.png">
+<img src="./public/images/github_readme_dark.png">
 
 ## Table of Contents
 
@@ -32,7 +32,7 @@ This portfolio website includes the following features:
     <img src="./public/images/github_readme_light.png">
 
   - Dark Mode
-    <img src="./public/images/github_readme.png">
+    <img src="./public/images/github_readme_dark.png">
     <br/>
 
 - The hero section contains a 3D laptop model. You can click on the laptop screen to rotate the image.
