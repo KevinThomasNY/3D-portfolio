@@ -23,9 +23,9 @@ export default function Technologies() {
           <p className="mt-4 text-base text-gray-700 dark:text-gray-300">
             Node.js <br />
             Express.js <br />
+            MySQL <br />
             MongoDB <br />
             Laravel <br />
-            MySQL <br />
           </p>
         </div>
         <div className="flex flex-col items-center">
@@ -35,6 +35,7 @@ export default function Technologies() {
           </div>
           <p className="mt-4 text-base text-gray-700 dark:text-gray-300">
             JavaScript <br />
+            TypeScript <br />
             PHP <br />
             Java <br />
             Kotlin <br />
