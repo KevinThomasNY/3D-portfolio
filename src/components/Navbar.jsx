@@ -28,56 +28,30 @@ export default function Navbar({ theme, toggleTheme }) {
               />
             )}
           </button>
-          <button
-            type="button"
+          <a
+            href="https://github.com/KevinThomasNY"
+            target="_blank"
+            rel="noopener noreferrer"
             className="ml-2 transition duration-200 ease-in-out hover:scale-110"
           >
-            {theme === "dark" ? (
-              <a href="https://github.com/KevinThomasNY" target="_blank">
-                <img
-                  className="w-8 md:w-12"
-                  src="./images/dark_nav_github.png"
-                  alt="github"
-                />
-              </a>
-            ) : (
-              <a href="https://github.com/KevinThomasNY" target="_blank">
-                <img
-                  className="w-8 md:w-12"
-                  src="./images/light_nav_github.png"
-                  alt="github"
-                />
-              </a>
-            )}
-          </button>
-          <button
-            type="button"
+            <img
+              className="w-8 md:w-12"
+              src={`./images/${theme}_nav_github.png`}
+              alt="github"
+            />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/kevin-thomas-ny/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="ml-2 transition duration-200 ease-in-out hover:scale-110"
           >
-            {theme === "dark" ? (
-              <a
-                href="https://www.linkedin.com/in/kevin-thomas-ny/"
-                target="_blank"
-              >
-                <img
-                  className="w-8 md:w-12"
-                  src="./images/dark_nav_linkedIn.png"
-                  alt="linkedIn"
-                />
-              </a>
-            ) : (
-              <a
-                href="https://www.linkedin.com/in/kevin-thomas-ny/"
-                target="_blank"
-              >
-                <img
-                  className="w-8 md:w-12"
-                  src="./images/light_nav_linkedIn.png"
-                  alt="linkedIn"
-                />
-              </a>
-            )}
-          </button>
+            <img
+              className="w-8 md:w-12"
+              src={`./images/${theme}_nav_linkedIn.png`}
+              alt="LinkedIn"
+            />
+          </a>
           <button
             data-collapse-toggle="navbar-cta"
             type="button"

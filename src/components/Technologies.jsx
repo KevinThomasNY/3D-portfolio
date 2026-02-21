@@ -36,6 +36,7 @@ export default function Technologies() {
           <p className="mt-4 text-base text-gray-700 dark:text-gray-300">
             JavaScript <br />
             TypeScript <br />
+            Python <br />
             PHP <br />
             Java <br />
             Kotlin <br />

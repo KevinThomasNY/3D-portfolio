@@ -11,8 +11,15 @@ export default function Hero({ theme }) {
             </h1>
             <br />
             <p className="pb-16 text-base md:pb-64 md:text-lg">
-              I am a{" "}
-              <span className="text-accent-purple">Software Developer</span>{" "}
+              I am a <span className="text-accent-purple">Software Engineer</span> at{" "}
+              <a
+                href="https://valorpaytech.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline"
+              >
+                Valor PayTech
+              </a>{" "}
               passionate about building user-friendly web apps based in New
               York.
             </p>
