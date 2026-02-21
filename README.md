@@ -44,7 +44,3 @@ This portfolio website includes the following features:
 
   ![Contact](./public/gif/contact.gif)
   <br/>
-
-- Error page includes animated 3D model.
-
-  ![Gandalf](./public/gif/gandalf.gif)
