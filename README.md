@@ -12,7 +12,7 @@
 
 ## Introduction
 
-This portfolio website is created to showcase my skills and recent projects. Visitors can easily navigate through my projects and get a glimpse of my skills and experience.
+A portfolio website showcasing my projects, skills, and experience.
 
 ## Technologies
 
