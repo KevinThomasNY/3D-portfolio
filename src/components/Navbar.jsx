@@ -1,7 +1,7 @@
 import "flowbite";
 export default function Navbar({ theme, toggleTheme }) {
   return (
-    <nav className="sticky top-0  z-50 border-gray-200 bg-white dark:bg-dark-bg">
+    <nav className="sticky top-0  z-50 border-gray-200 bg-off-white dark:bg-dark-bg">
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
         <a href="/">
           <span className="  self-center whitespace-nowrap text-xl font-semibold  hover:text-accent-green   dark:text-white dark:hover:text-accent-green md:text-2xl">
@@ -79,7 +79,7 @@ export default function Navbar({ theme, toggleTheme }) {
           className="hidden w-full items-center justify-between md:order-1 md:flex md:w-auto"
           id="navbar-cta"
         >
-          <ul className="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium dark:border-gray-700 dark:bg-gray-800 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0 md:dark:bg-dark-bg">
+          <ul className="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium dark:border-gray-700 dark:bg-gray-800 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-off-white md:p-0 md:dark:bg-dark-bg">
             <li>
               <a
                 href="#projects"

@@ -30,7 +30,7 @@ export default function HomePage() {
     } else {
       document.documentElement.style.setProperty(
         "--scrollbar-track-background",
-        "#ffffff"
+        "#F8F9FA"
       );
     }
 
@@ -47,7 +47,7 @@ export default function HomePage() {
   return (
     <>
       <Navbar theme={theme} toggleTheme={handleThemeSwitch} />
-      <div className="bg-white dark:bg-dark-bg dark:text-white">
+      <div className="bg-off-white dark:bg-dark-bg dark:text-white">
         <Hero theme={theme} />
         <Projects theme={theme} />
         <Cards />
