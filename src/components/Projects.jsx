@@ -1,11 +1,10 @@
-const projectsData = [
+const PROJECTS = [
   {
     name: "Winterhold University",
     description:
       "This is a full stack website built for a System Design and Implementation class. The goal was to create a college registration system. There are 4 different logins: student, faculty, researcher, and admin.",
     technologies: ["JavaScript", "MySQL", "PHP"],
     githubLink: "https://github.com/KevinThomasNY/Winterhold-University",
-    liveLink: "",
     image: "./images/winterhold.png",
     alt: "Winterhold University website screenshot",
     bgColor: "bg-dark-green",
@@ -34,100 +33,83 @@ const projectsData = [
   },
 ];
 
-function Project({ project, index, theme }) {
-  const isImageFirst = index % 2 !== 0;
-  const githubLogo = theme === "dark" ? "light" : "dark";
-  const liveLogo = theme === "dark" ? "light" : "dark";
+function getTechIcon(tech, projectName) {
+  const techLower = tech.toLowerCase();
+  if (techLower === "java") return "./images/icons8-java.svg";
+  if (projectName === "MERN Todo App") return `./images/icons8-${techLower}.svg`;
+  return `./images/logos_${techLower}.png`;
+}
 
-  const renderImage = () => (
+function ProjectImage({ project }) {
+  const img = <img src={project.image} alt={project.alt} />;
+  return (
     <div className="flex items-center justify-center">
       {project.liveLink ? (
-        <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
-          <img src={project.image} alt={project.alt} />
-        </a>
-      ) : (
-        <img src={project.image} alt={project.alt} />
-      )}
+        <a href={project.liveLink} target="_blank" rel="noopener noreferrer">{img}</a>
+      ) : img}
     </div>
   );
+}
+
+function ProjectLink({ href, iconSrc, alt }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="mr-2 inline-block transition duration-200 ease-in-out hover:scale-110"
+    >
+      <img className="w-8 md:w-9" src={iconSrc} alt={alt} />
+    </a>
+  );
+}
+
+function Project({ project, index, theme }) {
+  const isImageFirst = index % 2 !== 0;
+  const iconVariant = theme === "dark" ? "light" : "dark";
 
   return (
     <div className="md:pb-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-      {isImageFirst && renderImage()}
+      {isImageFirst && <ProjectImage project={project} />}
 
       <div>
         <h2 className="pb-4 text-2xl">{project.name}</h2>
-        <p className={`${project.bgColor} p-6 text-white`}>
-          {project.description}
-        </p>
-        <div className="flex flex-row pb-4 pt-4">
-          {project.technologies.map((tech, idx) => {
-            let iconSrc = "";
-            // Check if technology is Java
-            if (tech.toLowerCase() === "java") {
-              iconSrc = "./images/icons8-java.svg";
-            } else if (project.name === "MERN Todo App") {
-              iconSrc = `./images/icons8-${tech.toLowerCase()}.svg`;
-            } else {
-              iconSrc = `./images/logos_${tech.toLowerCase()}.png`;
-            }
-            return (
-              <img key={idx} src={iconSrc} alt={tech} className="mr-4" />
-            );
-          })}
+        <p className={`${project.bgColor} p-6 text-white`}>{project.description}</p>
+        <div className="flex flex-row py-4">
+          {project.technologies.map((tech) => (
+            <img key={tech} src={getTechIcon(tech, project.name)} alt={tech} className="mr-4" />
+          ))}
         </div>
         <div>
-          <button
-            type="button"
-            className="mr-2 transition duration-200 ease-in-out hover:scale-110"
-          >
-            <a
-              href={project.githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                className="w-8 md:w-9"
-                src={`./images/logos_github_${githubLogo}.png`}
-                alt="github"
-              />
-            </a>
-          </button>
+          <ProjectLink
+            href={project.githubLink}
+            iconSrc={`./images/logos_github_${iconVariant}.png`}
+            alt="github"
+          />
           {project.liveLink && (
-            <button
-              type="button"
-              className="transition duration-200 ease-in-out hover:scale-110"
-            >
-              <a
-                href={project.liveLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  className="w-8 md:w-9"
-                  src={`./images/logos_live_site_${liveLogo}.png`}
-                  alt="live site"
-                />
-              </a>
-            </button>
+            <ProjectLink
+              href={project.liveLink}
+              iconSrc={`./images/logos_live_site_${iconVariant}.png`}
+              alt="live site"
+            />
           )}
         </div>
       </div>
 
-      {!isImageFirst && renderImage()}
+      {!isImageFirst && <ProjectImage project={project} />}
     </div>
   );
 }
 
 export default function Projects({ theme }) {
   return (
-    <div id="projects" className="mx-auto max-w-6xl p-4">
+    <section id="projects" className="mx-auto max-w-6xl p-4">
       <h1 className="text-4xl md:pb-12 md:text-6xl">Projects</h1>
       <div className="space-y-16">
-        {projectsData.map((project, index) => (
-          <Project key={index} project={project} index={index} theme={theme} />
+        {PROJECTS.map((project, index) => (
+          <Project key={project.name} project={project} index={index} theme={theme} />
         ))}
       </div>
-    </div>
+    </section>
   );
 }
