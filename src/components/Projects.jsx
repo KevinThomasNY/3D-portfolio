@@ -62,13 +62,12 @@ function ProjectLink({ href, iconSrc, alt }) {
   );
 }
 
-function Project({ project, index, theme }) {
-  const isImageFirst = index % 2 !== 0;
+function Project({ project, theme }) {
   const iconVariant = theme === "dark" ? "light" : "dark";
 
   return (
     <div className="md:pb-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-      {isImageFirst && <ProjectImage project={project} />}
+      <ProjectImage project={project} />
 
       <div>
         <h2 className="pb-4 text-2xl">{project.name}</h2>
@@ -93,8 +92,6 @@ function Project({ project, index, theme }) {
           )}
         </div>
       </div>
-
-      {!isImageFirst && <ProjectImage project={project} />}
     </div>
   );
 }
@@ -105,7 +102,7 @@ export default function Projects({ theme }) {
       <h1 className="text-4xl md:pb-12 md:text-6xl">Projects</h1>
       <div className="space-y-16">
         {PROJECTS.map((project, index) => (
-          <Project key={project.name} project={project} index={index} theme={theme} />
+          <Project key={project.name} project={project} theme={theme} />
         ))}
       </div>
     </section>
