@@ -1,23 +1,12 @@
 const PROJECTS = [
   {
-    name: "Winterhold University",
+    name: "Password Manager",
     description:
-      "This is a full stack website built for a System Design and Implementation class. The goal was to create a college registration system. There are 4 different logins: student, faculty, researcher, and admin.",
-    technologies: ["JavaScript", "MySQL", "PHP"],
-    githubLink: "https://github.com/KevinThomasNY/Winterhold-University",
-    image: "./images/winterhold.png",
-    alt: "Winterhold University website screenshot",
-    bgColor: "bg-dark-green",
-  },
-  {
-    name: "MERN Todo App",
-    description:
-      "The application allows users to perform CRUD Operations on their Todo tasks. The app also includes a login and register page for user authentication. It is using JSON web token (JWT) for secure user sessions.",
-    technologies: ["MongoDB", "Express-js", "React", "Nodejs"],
-    githubLink: "https://github.com/KevinThomasNY/MERN-todo-app",
-    liveLink: "https://todo-app-mern-stack.vercel.app/",
-    image: "./images/mern.png",
-    alt: "MERN Todo App screenshot",
+      "A full stack application for securely managing passwords. Built with React, TypeScript, Node.js, and Express.js. Uses Drizzle ORM with SQLite for data persistence, featuring user authentication, encrypted password storage, and a modern UI with Tailwind CSS.",
+    technologies: ["React", "TypeScript", "Nodejs", "Express-js", "SQLite"],
+    githubLink: "https://github.com/KevinThomasNY/password-manager",
+    image: "./images/password_manager.png",
+    alt: "Password Manager screenshot",
     bgColor: "bg-accent-purple",
   },
   {
@@ -25,18 +14,27 @@ const PROJECTS = [
     description:
       "The Maze Game is a 2D Java game that includes randomly generated mazes. Each level presents players with progressively complex and challenging obstacles.",
     technologies: ["Java"],
-    githubLink: "https://github.com/KevinThomasNY/The-Maze-Game-Java-",
-    liveLink: "https://the-maze-game-java.netlify.app/",
+    githubLink: "https://github.com/KevinThomasNY/java-2d-game",
     image: "./images/maze_game.png",
     alt: "Java screenshot",
     bgColor: "bg-dark-green",
   },
+  {
+    name: "Winterhold University",
+    description:
+      "This is a full stack website built for a System Design and Implementation class. The goal was to create a college registration system. There are 4 different logins: student, faculty, researcher, and admin.",
+    technologies: ["JavaScript", "MySQL", "PHP"],
+    githubLink: "https://github.com/KevinThomasNY/Winterhold-University",
+    image: "./images/winterhold.png",
+    alt: "Winterhold University website screenshot",
+    bgColor: "bg-accent-purple",
+  },
 ];
 
-function getTechIcon(tech, projectName) {
+function getTechIcon(tech) {
   const techLower = tech.toLowerCase();
-  if (techLower === "java") return "./images/icons8-java.svg";
-  if (projectName === "MERN Todo App") return `./images/icons8-${techLower}.svg`;
+  const svgIcons = ["java", "react", "nodejs", "express-js", "typescript", "sqlite"];
+  if (svgIcons.includes(techLower)) return `./images/icons8-${techLower}.svg`;
   return `./images/logos_${techLower}.png`;
 }
 
@@ -77,7 +75,7 @@ function Project({ project, index, theme }) {
         <p className={`${project.bgColor} p-6 text-white`}>{project.description}</p>
         <div className="flex flex-row py-4">
           {project.technologies.map((tech) => (
-            <img key={tech} src={getTechIcon(tech, project.name)} alt={tech} className="mr-4" />
+            <img key={tech} src={getTechIcon(tech)} alt={tech} className="mr-4" />
           ))}
         </div>
         <div>
