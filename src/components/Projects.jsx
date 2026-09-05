@@ -66,8 +66,13 @@ function ImageModal({ project, isOpen, onClose }) {
     if (!isOpen) return;
 
     const previousActiveElement = document.activeElement;
+    const previousBodyOverflow = document.body.style.overflow;
     const handleKeyDown = (event) => {
       if (event.key === "Escape") onClose();
+      if (event.key === "Tab") {
+        event.preventDefault();
+        closeButtonRef.current?.focus();
+      }
     };
 
     document.body.style.overflow = "hidden";
@@ -75,7 +80,7 @@ function ImageModal({ project, isOpen, onClose }) {
     closeButtonRef.current?.focus();
 
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousBodyOverflow;
       document.removeEventListener("keydown", handleKeyDown);
       previousActiveElement?.focus();
     };
@@ -109,6 +114,7 @@ function ImageModal({ project, isOpen, onClose }) {
           ref={closeButtonRef}
           type="button"
           onClick={onClose}
+          tabIndex={isOpen ? 0 : -1}
           aria-label="Close image preview"
           className="absolute right-2 top-2 flex h-10 w-10 items-center justify-center rounded-full bg-black/70 text-2xl text-white transition hover:bg-black focus:outline-none focus-visible:ring-4 focus-visible:ring-accent-green"
         >

@@ -9,34 +9,37 @@ export default function Contact({ theme }) {
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState(null);
   const [error, setError] = useState("");
-  const handleSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!name || !email || !message) {
       setError("Please fill all values.");
       return;
     }
 
-    emailjs
-      .sendForm(
+    setIsSubmitting(true);
+    setSuccess(null);
+    setError("");
+
+    try {
+      await emailjs.sendForm(
         import.meta.env.VITE_SERVICE_ID,
         import.meta.env.VITE_TEMPLATE_ID,
         form.current,
         import.meta.env.VITE_PUBLIC_KEY
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          setName("");
-          setEmail("");
-          setMessage("");
-          setSuccess(true);
-          setError("");
-        },
-        (error) => {
-          console.log(error.text);
-          setSuccess(false);
-        }
       );
+      setName("");
+      setEmail("");
+      setMessage("");
+      setSuccess(true);
+    } catch (submissionError) {
+      console.error(submissionError);
+      setSuccess(false);
+      setError("Your message could not be sent. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -49,7 +52,7 @@ export default function Contact({ theme }) {
               type="text"
               name="name"
               id="floating_name"
-              className="text=lg peer block w-full appearance-none border-0 border-b-2 border-white bg-transparent px-0 py-2.5 text-white focus:border-dark-green focus:outline-none focus:ring-0"
+              className="peer block w-full appearance-none border-0 border-b-2 border-white bg-transparent px-0 py-2.5 text-lg text-white focus:border-dark-green focus:outline-none focus:ring-0"
               placeholder=" "
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -101,10 +104,10 @@ export default function Contact({ theme }) {
 
           <button
             type="submit"
-            onClick={handleSubmit}
-            className="mb-4 w-full rounded-lg bg-accent-green px-5 py-2.5 text-center text-lg font-medium text-white hover:bg-dark-green focus:outline-none focus:ring-4 focus:ring-blue-200 sm:w-auto"
+            disabled={isSubmitting}
+            className="mb-4 w-full rounded-lg bg-accent-green px-5 py-2.5 text-center text-lg font-medium text-white hover:bg-dark-green focus:outline-none focus:ring-4 focus:ring-blue-200 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
           >
-            Submit
+            {isSubmitting ? "Sending..." : "Submit"}
           </button>
           <br />
           <p className="text-red-500">{error}</p>

@@ -12,10 +12,7 @@ import {
 import CanvasLoader from "../Loader";
 const Experience = ({ theme }) => {
   const computer = useGLTF("./models/laptop.gltf");
-  const src =
-    theme === "dark"
-      ? "https://3-d-portfolio-kevinthomasny.vercel.app/dark"
-      : "https://3-d-portfolio-kevinthomasny.vercel.app/light";
+  const src = theme === "dark" ? "/dark" : "/light";
   return (
     <>
       <Environment path="/hdri/" files="potsdamer_platz_1k.hdr" />
@@ -44,7 +41,7 @@ const Experience = ({ theme }) => {
               position={[0, 1.56, -1.4]}
               rotation-x={-0.256}
             >
-              <iframe src={src} />
+              <iframe src={src} title={`${theme} portfolio background`} />
             </Html>
           </primitive>
         </Float>

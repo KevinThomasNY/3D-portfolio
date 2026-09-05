@@ -12,15 +12,15 @@ const projectsData = [
   },
   {
     id: 2,
-    name: "Andriod Contact App",
+    name: "Android Contact App",
     description:
       "This mobile app was built using Android Studio. The app stores a persons contact information. Based on users age the app will return information such as: can the user drive, vote, and rent a car. Google Maps API was added. This allows users to use Google Maps through the app.",
-    technologies: ["Andriod Studio", "Kotlin", "SQLite"],
+    technologies: ["Android Studio", "Kotlin", "SQLite"],
     githubLink:
       "https://github.com/KevinThomasNY/Contact-Information-Android-App-",
     liveLink: "https://contact-app-android.netlify.app/",
     image: "./images/andriod_app.png",
-    alt: "Andriod Contact App screenshot",
+    alt: "Android Contact App screenshot",
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const projectsData = [
     githubLink: "https://github.com/KevinThomasNY/Winterhold-3D-Model",
     liveLink: "https://winterhold-3d-model.vercel.app/",
     image: "./images/winterhold_model.png",
-    alt: "Andriod Contact App screenshot",
+    alt: "Winterhold University 3D model screenshot",
   },
   {
     id: 4,
@@ -69,7 +69,11 @@ export default function Cards() {
               project.id === 5 ? "md:col-span-2" : ""
             }`}
           >
-            <a href={project.liveLink} target="_blank">
+            <a
+              href={project.liveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img
                 className="w-full rounded-t-lg"
                 src={project.image}
@@ -77,11 +81,9 @@ export default function Cards() {
               />
             </a>
             <div className="p-5">
-              <a href="#">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                  {project.name}
-                </h5>
-              </a>
+              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                {project.name}
+              </h5>
               <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
                 {project.description}
               </p>
@@ -100,6 +102,7 @@ export default function Cards() {
                 <a
                   href={project.githubLink}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="mr-4 mt-4  inline-flex items-center justify-center  rounded-lg bg-accent-green px-3 py-2 text-center text-sm font-medium text-white  hover:bg-dark-green focus:outline-none focus:ring-4 focus:ring-green-700"
                 >
                   Code
@@ -123,6 +126,7 @@ export default function Cards() {
               <a
                 href={project.liveLink}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="mt-4 inline-flex  items-center justify-center rounded-lg bg-blue-700 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 Live Site

@@ -75,15 +75,15 @@ html {
 }
 
 @media (min-width: 1024px) {
-  /* styles for screens with width 768px and above */
+  /* Styles for desktop screens */
   .overlay {
     width: var(--form-overlay-max-width);
     height: 100%;
   }
 }
 
-/* styles for screens with width 767px and below */
-@media (max-width: 1024px) {
+/* Styles for screens below the desktop breakpoint */
+@media (max-width: 1023px) {
   .overlay {
     width: var(--form-overlay-width);
     height: 100%;
