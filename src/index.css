@@ -85,8 +85,9 @@ html {
 /* Styles for screens below the desktop breakpoint */
 @media (max-width: 1023px) {
   .overlay {
+    position: relative;
     width: var(--form-overlay-width);
-    height: 100%;
+    height: auto;
   }
   .contact-container {
     height: auto;

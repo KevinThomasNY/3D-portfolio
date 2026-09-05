@@ -1,12 +1,14 @@
 import { lazy, Suspense, useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import useElementVisibility from "../hooks/useElementVisibility";
+import useMediaQuery from "../hooks/useMediaQuery";
 
 const Mail = lazy(() => import("./canvas/Mail"));
 
 export default function Contact({ theme }) {
   const form = useRef();
   const [contactRef, isContactVisible] = useElementVisibility("300px");
+  const isTwoColumnLayout = useMediaQuery("(min-width: 1024px)");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -123,7 +125,7 @@ export default function Contact({ theme }) {
           )}
         </form>
       </div>
-      {isContactVisible && (
+      {isTwoColumnLayout && isContactVisible && (
         <Suspense fallback={null}>
           <Mail theme={theme} />
         </Suspense>
