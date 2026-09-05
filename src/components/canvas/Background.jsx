@@ -1,13 +1,13 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Preload } from "@react-three/drei";
 
-const Experience = ({ theme }) => {
+function Experience({ image }) {
   const texture = useRef();
   const sphere = useRef();
   const loader = new THREE.TextureLoader();
-  texture.current = loader.load("./images/light_hero.jpeg");
+  texture.current = loader.load(image);
 
   const geometry = new THREE.SphereGeometry(500, 60, 40);
   geometry.scale(-1, 1, 1);
@@ -24,13 +24,13 @@ const Experience = ({ theme }) => {
       </mesh>
     </>
   );
-};
+}
 
-export default function LightBackground({ theme }) {
+export default function Background({ image }) {
   return (
     <div className="fixed left-0 top-0 h-full w-full">
       <Canvas>
-        <Experience theme={theme} />
+        <Experience image={image} />
         <Preload all />
       </Canvas>
     </div>

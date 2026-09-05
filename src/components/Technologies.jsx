@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   HiOutlineViewGrid,
   HiOutlineTerminal,
@@ -30,41 +29,42 @@ const skillsData = [
     id: 4,
     title: "Cloud & AWS",
     icon: HiOutlineCloud,
-    skills: ["Docker", "AWS Lambda", "AWS SAM", "Amazon ECS", "Amazon S3", "Secrets Manager"],
+    skills: [
+      "Docker",
+      "AWS Lambda",
+      "AWS SAM",
+      "Amazon ECS",
+      "Amazon S3",
+      "Secrets Manager",
+    ],
   },
   {
     id: 5,
     title: "Languages",
     icon: HiOutlineCode,
-    skills: ["JavaScript", "TypeScript", "Python", "PHP", "Java", "Kotlin", "C#"],
+    skills: [
+      "JavaScript",
+      "TypeScript",
+      "Python",
+      "PHP",
+      "Java",
+      "Kotlin",
+      "C#",
+    ],
   },
 ];
 
 function SkillCard({ category }) {
-  const [isHovered, setIsHovered] = useState(false);
   const Icon = category.icon;
 
   return (
     <div
-      className={`rounded-xl border p-5 transition-all duration-300 
-        ${
-          isHovered
-            ? "border-accent-green bg-gray-50 dark:bg-dark-card/80"
-            : "border-gray-200 bg-white dark:border-gray-700 dark:bg-dark-card"
-        }
+      className={`group rounded-xl border border-gray-200 bg-white p-5 transition-all duration-300 hover:border-accent-green hover:bg-gray-50 dark:border-gray-700 dark:bg-dark-card dark:hover:border-accent-green dark:hover:bg-dark-card/80
         ${category.id === 5 ? "md:col-span-2" : ""}
       `}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
       <div className="mb-4 flex items-center gap-3">
-        <div
-          className={`flex h-10 w-10 items-center justify-center rounded-lg transition-colors duration-300 ${
-            isHovered
-              ? "bg-accent-green text-white"
-              : "bg-accent-green/10 text-accent-green"
-          }`}
-        >
+        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent-green/10 text-accent-green transition-colors duration-300 group-hover:bg-accent-green group-hover:text-white">
           <Icon className="h-5 w-5" />
         </div>
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white">

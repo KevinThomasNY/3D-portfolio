@@ -43,7 +43,7 @@ export default function Contact({ theme }) {
   };
 
   return (
-    <div className="container mx-auto max-w-7xl">
+    <div className="contact-container mx-auto max-w-7xl">
       <div className="overlay">
         <h1 className="pb-2">Contact Me</h1>
         <form ref={form} onSubmit={handleSubmit}>
