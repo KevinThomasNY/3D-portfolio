@@ -54,6 +54,7 @@ const Experience = ({ theme }) => {
 export default function Laptop({ theme }) {
   return (
     <Canvas
+      dpr={[1, 1.5]}
       style={{ touchAction: "none", zIndex: 1 }}
       camera={{
         fov: 45,

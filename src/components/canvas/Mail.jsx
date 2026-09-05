@@ -6,10 +6,11 @@ import CanvasLoader from "../Loader";
 
 const Experience = ({ theme }) => {
   const sphere = useRef();
-  
-  const src = theme === "dark"
-    ? "./images/dark_contact_form.jpeg"
-    : "./images/light_contact_form.jpeg";
+
+  const src =
+    theme === "dark"
+      ? "./images/dark_contact_form.jpeg"
+      : "./images/light_contact_form.jpeg";
 
   const texture = useLoader(THREE.TextureLoader, src);
 
@@ -32,7 +33,7 @@ const Experience = ({ theme }) => {
 
 export default function Mail({ theme }) {
   return (
-    <Canvas>
+    <Canvas dpr={[1, 1.5]}>
       <Suspense fallback={<CanvasLoader />}>
         <Experience theme={theme} />
       </Suspense>

@@ -1,9 +1,12 @@
-import { useState, useRef } from "react";
+import { lazy, Suspense, useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
-import Mail from "./canvas/Mail";
+import useElementVisibility from "../hooks/useElementVisibility";
+
+const Mail = lazy(() => import("./canvas/Mail"));
 
 export default function Contact({ theme }) {
   const form = useRef();
+  const [contactRef, isContactVisible] = useElementVisibility("300px");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -43,7 +46,7 @@ export default function Contact({ theme }) {
   };
 
   return (
-    <div className="contact-container mx-auto max-w-7xl">
+    <div ref={contactRef} className="contact-container mx-auto max-w-7xl">
       <div className="overlay">
         <h1 className="pb-2">Contact Me</h1>
         <form ref={form} onSubmit={handleSubmit}>
@@ -120,7 +123,11 @@ export default function Contact({ theme }) {
           )}
         </form>
       </div>
-      <Mail className="mail" theme={theme} />
+      {isContactVisible && (
+        <Suspense fallback={null}>
+          <Mail theme={theme} />
+        </Suspense>
+      )}
     </div>
   );
 }

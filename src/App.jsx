@@ -1,7 +1,9 @@
+import { lazy, Suspense } from "react";
 import HomePage from "./HomePage";
 import Error from "./components/Error";
-import Background from "./components/canvas/Background";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+const Background = lazy(() => import("./components/canvas/Background"));
 
 function App() {
   return (
@@ -10,11 +12,19 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route
           path="/dark"
-          element={<Background image="./images/dark_hero.jpeg" />}
+          element={
+            <Suspense fallback={null}>
+              <Background image="./images/dark_hero.jpeg" />
+            </Suspense>
+          }
         />
         <Route
           path="/light"
-          element={<Background image="./images/light_hero.jpeg" />}
+          element={
+            <Suspense fallback={null}>
+              <Background image="./images/light_hero.jpeg" />
+            </Suspense>
+          }
         />
         <Route path="*" element={<Error />} />
       </Routes>

@@ -29,7 +29,7 @@ function Experience({ image }) {
 export default function Background({ image }) {
   return (
     <div className="fixed left-0 top-0 h-full w-full">
-      <Canvas>
+      <Canvas dpr={[1, 1.5]}>
         <Experience image={image} />
         <Preload all />
       </Canvas>

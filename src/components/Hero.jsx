@@ -1,6 +1,11 @@
-import Laptop from "./canvas/Laptop";
+import { lazy, Suspense } from "react";
+import useElementVisibility from "../hooks/useElementVisibility";
+
+const Laptop = lazy(() => import("./canvas/Laptop"));
 
 export default function Hero({ theme }) {
+  const [heroRef, isHeroVisible] = useElementVisibility("300px");
+
   return (
     <>
       <div className="mx-auto max-w-6xl p-4  pt-8  md:pt-16">
@@ -11,7 +16,8 @@ export default function Hero({ theme }) {
             </h1>
             <br />
             <p className="pb-16 text-base md:pb-64 md:text-lg">
-              I am a <span className="text-accent-purple">Software Engineer</span> at{" "}
+              I am a{" "}
+              <span className="text-accent-purple">Software Engineer</span> at{" "}
               <a
                 href="https://valorpaytech.com/"
                 target="_blank"
@@ -25,8 +31,12 @@ export default function Hero({ theme }) {
             </p>
           </div>
 
-          <div className="hidden md:block">
-            <Laptop theme={theme} />
+          <div ref={heroRef} className="hidden md:block">
+            {isHeroVisible && (
+              <Suspense fallback={null}>
+                <Laptop theme={theme} />
+              </Suspense>
+            )}
           </div>
         </div>
       </div>
