@@ -44,3 +44,5 @@ This portfolio website includes the following features:
 
   ![Contact](./public/gif/contact.gif)
   <br/>
+
+- The 404 page features an interactive 3D homelab model with animated lights and mouse movement.
